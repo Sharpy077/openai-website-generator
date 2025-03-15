@@ -38,7 +38,7 @@ EXPOSE 8000
 # Run the application
 CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
 
-FROM node:20.17.0-alpine AS builder
+FROM node:23.10.0-alpine AS builder
 
 WORKDIR /app
 
@@ -62,7 +62,7 @@ COPY . .
 RUN npm run build
 
 # Production image
-FROM node:20.17.0-alpine AS runner
+FROM node:23.10.0-alpine AS runner
 
 WORKDIR /app
 
