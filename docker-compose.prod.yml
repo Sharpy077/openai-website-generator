@@ -1,11 +1,24 @@
-version: '3.8'
-
 services:
+  postgres:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=${POSTGRES_DB}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - app_network
+
   frontend:
     image: ${DOCKER_USERNAME}/sharphorizons-frontend:latest
     restart: unless-stopped
     environment:
       - NODE_ENV=production
+      - DATABASE_URL=postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB}
+    depends_on:
+      - postgres
     networks:
       - app_network
 
@@ -36,5 +49,6 @@ networks:
     driver: bridge
 
 volumes:
+  postgres_data:
   certbot_conf:
   certbot_www:

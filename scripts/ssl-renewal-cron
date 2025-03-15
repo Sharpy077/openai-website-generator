@@ -1,0 +1,1 @@
+0 0 1 * * /app/scripts/renew-ssl.sh >> /var/log/ssl-renewal.log 2>&1
