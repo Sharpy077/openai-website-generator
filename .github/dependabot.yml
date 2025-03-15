@@ -1,0 +1,94 @@
+version: 2
+updates:
+  # Root package.json dependency updates
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+      timezone: "UTC"
+    open-pull-requests-limit: 10
+    versioning-strategy: "auto"
+    labels:
+      - "dependencies"
+      - "npm"
+    commit-message:
+      prefix: "chore"
+      include: "scope"
+    groups:
+      dev-dependencies:
+        patterns:
+          - "@types/*"
+          - "typescript"
+          - "postcss"
+          - "tailwindcss"
+          - "autoprefixer"
+      production-dependencies:
+        patterns:
+          - "@prisma/*"
+          - "next"
+          - "react*"
+
+  # Frontend package.json dependency updates
+  - package-ecosystem: "npm"
+    directory: "/frontend"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+      timezone: "UTC"
+    open-pull-requests-limit: 10
+    versioning-strategy: "auto"
+    labels:
+      - "dependencies"
+      - "npm"
+      - "frontend"
+    commit-message:
+      prefix: "chore"
+      include: "scope"
+    groups:
+      dev-dependencies:
+        patterns:
+          - "@types/*"
+          - "typescript"
+          - "postcss"
+          - "tailwindcss"
+          - "autoprefixer"
+      production-dependencies:
+        patterns:
+          - "@prisma/*"
+          - "next"
+          - "react*"
+          - "@auth/*"
+          - "next-auth"
+
+  # Docker dependency updates
+  - package-ecosystem: "docker"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+      timezone: "UTC"
+    labels:
+      - "dependencies"
+      - "docker"
+    commit-message:
+      prefix: "chore"
+      include: "scope"
+
+  # GitHub Actions updates
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+      timezone: "UTC"
+    labels:
+      - "dependencies"
+      - "github-actions"
+    commit-message:
+      prefix: "chore"
+      include: "scope"
