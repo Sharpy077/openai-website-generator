@@ -19,6 +19,8 @@ out/
 .env.development.local
 .env.test.local
 .env.production.local
+.env.production
+.env.staging
 *.pem
 .env*
 
@@ -32,11 +34,14 @@ yarn-error.log*
 *.crt
 *.csr
 *.pem
+certbot/
+ssl/
 
 # Azure credentials
 azure.ini
 *azure-credentials.ini
 *.ini
+azure.json
 
 # IDE
 .idea/
@@ -55,6 +60,25 @@ logs/
 # Build artifacts
 .docker/
 
+# Database
+*.sqlite
+*.db
+
+# Secrets and keys
+*secret*
+*key*
+*password*
+*credential*
+!package-lock.json
+!next.config.js
+!tailwind.config.js
+
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfvars
+
 # vercel
 .vercel
 
@@ -64,19 +88,3 @@ next-env.d.ts
 
 # Docker
 .docker
-
-# Terraform
-.terraform
-*.tfstate
-*.tfstate.*
-*.tfvars
-
-# SSL
-*.pem
-*.key
-*.crt
-*.csr
-
-# Logs
-*.log
-logs
