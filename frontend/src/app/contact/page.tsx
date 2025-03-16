@@ -22,7 +22,7 @@ export default function Contact() {
             await new Promise(resolve => setTimeout(resolve, 1000)); // Simulated API call
             setStatus('success');
             setFormData({ name: '', email: '', subject: '', message: '' });
-        } catch (error) {
+        } catch (_error) {
             setStatus('error');
         }
     };
@@ -45,7 +45,7 @@ export default function Contact() {
                         Get in Touch
                     </h1>
                     <p className="mt-4 text-xl text-gray-400">
-                        Have a project in mind? Let's discuss how we can help bring your vision to life.
+                        Have a project in mind? Let&apos;s discuss how we can help bring your vision to life.
                     </p>
                 </motion.div>
 
@@ -130,13 +130,9 @@ export default function Contact() {
                         </div>
 
                         {status === 'success' && (
-                            <motion.div
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: 1 }}
-                                className="text-green-400 text-center"
-                            >
-                                Thank you for your message! We'll get back to you soon.
-                            </motion.div>
+                            <div className="mt-4 p-4 rounded-md bg-green-100 text-green-700">
+                                Thank you for your message! We&apos;ll get back to you soon.
+                            </div>
                         )}
 
                         {status === 'error' && (

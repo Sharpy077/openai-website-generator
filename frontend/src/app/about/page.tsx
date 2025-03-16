@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion';
-import Image from 'next/image';
 
 export default function About() {
     return (
@@ -35,7 +34,7 @@ export default function About() {
                         <h2 className="text-2xl font-bold text-white mb-4">Our Vision</h2>
                         <p className="text-gray-300">
                             At SharpHorizons, we envision a digital landscape where technology seamlessly enhances human experiences.
-                            Our commitment to innovation drives us to create solutions that not only meet today's needs but anticipate tomorrow's challenges.
+                            Our commitment to innovation drives us to create solutions that not only meet today&apos;s needs but anticipate tomorrow&apos;s challenges.
                         </p>
                         <div className="mt-6 space-y-4">
                             {visionPoints.map((point, index) => (

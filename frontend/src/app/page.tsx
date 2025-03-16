@@ -48,7 +48,7 @@ export default function Home() {
                     transition={{ duration: 0.8, delay: 0.2 }}
                     className="mt-32 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3"
                 >
-                    {features.map((feature, index) => (
+                    {features.map((feature, _index) => (
                         <div
                             key={feature.title}
                             className="relative rounded-2xl bg-white/5 p-6 backdrop-blur-lg ring-1 ring-white/10 hover:ring-white/20 transition-all duration-300"
